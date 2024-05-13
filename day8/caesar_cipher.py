@@ -18,4 +18,5 @@ def encrypt(text, shift):
         cipher_text += new_letter
     print(f"The encoded text is {cipher_text}")
 
+
 encrypt(text, shift)
