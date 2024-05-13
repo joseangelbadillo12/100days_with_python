@@ -37,16 +37,10 @@ def caesar(text, shift, direction):
     answer = ""
     for letters in text:
         alphabet_index = alphabet.index(letters)
-        if direction == "encode":
-            new_index = alphabet_index + shift
-        else:
-            new_index = alphabet_index - shift
-        if new_index > 25:
-            new_index -= 26
-        elif new_index < 0:
-            new_index += 26
-        new_letter = alphabet[new_index]
-        answer += new_letter
+        if direction == "decode":
+            shift *= -1
+        new_index = alphabet_index + shift
+        answer += alphabet[new_index]
     print(f"The {direction}d text is {answer}")
 
 caesar(text, shift, direction)
