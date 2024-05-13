@@ -5,32 +5,48 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 direction = input("Type 'endcode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
-new_alphabet = []
 
-def encrypt(text, shift):
-    cipher_text = ""
+# def encrypt(text, shift):
+#     cipher_text = ""
+#     for letters in text:
+#         alphabet_index = alphabet.index(letters)
+#         new_index = alphabet_index + shift
+#         if new_index > 25:
+#             new_index -= 26
+#         new_letter = alphabet[new_index]
+#         cipher_text += new_letter
+#     print(f"The encoded text is {cipher_text}")
+
+# def decrypt(text, shift):
+#     decrypted_text = ""
+#     for letters in text:
+#         alphabet_index = alphabet.index(letters)
+#         new_index = alphabet_index - shift
+#         if new_index < 0:
+#             new_index += 26
+#         new_letter = alphabet[new_index]
+#         decrypted_text += new_letter
+#     print(f"The decoded text is {decrypted_text}")
+
+# if direction == "encode":
+#     encrypt(text, shift)
+# else:
+#     decrypt(text, shift)
+
+def caesar(text, shift, direction):
+    answer = ""
     for letters in text:
         alphabet_index = alphabet.index(letters)
-        new_index = alphabet_index + shift
+        if direction == "encode":
+            new_index = alphabet_index + shift
+        else:
+            new_index = alphabet_index - shift
         if new_index > 25:
             new_index -= 26
-        new_letter = alphabet[new_index]
-        cipher_text += new_letter
-    print(f"The encoded text is {cipher_text}")
-
-def decrypt(text, shift):
-    decrypted_text = ""
-    for letters in text:
-        alphabet_index = alphabet.index(letters)
-        new_index = alphabet_index - shift
-        if new_index < 0:
+        elif new_index < 0:
             new_index += 26
         new_letter = alphabet[new_index]
-        decrypted_text += new_letter
-    print(f"The decoded text is {decrypted_text}")
+        answer += new_letter
+    print(f"The {direction}d text is {answer}")
 
-if direction == "encode":
-    encrypt(text, shift)
-else:
-    decrypt(text, shift)
-
+caesar(text, shift, direction)
