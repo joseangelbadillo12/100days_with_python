@@ -14,7 +14,7 @@ print(logo)
 while not won:
     guess = input("Guess a letter: ").lower()
     if guess in blank_list:
-      print(f"You've already guessed {guess}")
+        print(f"You've already guessed {guess}")
     for guessed in range(0, len(random_word)):
         if guess == random_word[guessed]:
             blank_list[guessed] = guess
